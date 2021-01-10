@@ -1,31 +1,45 @@
-const userInput = document.querySelector('input[type=text]');
+const input = document.querySelector('input[type=text]');
 const submit = document.querySelector('input[type=submit]');
 const form = document.querySelector('form');
 
 function submitToDo(event) {
 
-  // Capture user input
+  // Get input
   event.preventDefault();
-  let submission = userInput.value;
+  let submission = input.value;
 
-  // Check for input
-  if(submission !== "" && document.querySelector('ul') === null) {
+  function createFirstReminder() {
     const list = document.createElement('ul');
     form.insertAdjacentElement('beforebegin', list);
     const li = document.createElement('li');
     li.textContent = `${submission}`;
+
     list.appendChild(li);
-  } else if(submission !== "") {
+    const finish = document.createElement('input');
+    finish.type = "checkbox";
+    li.appendChild(finish);
+  }
+
+  function createReminder() {
     const list = document.querySelector('ul');
     const li = document.createElement('li');
     li.textContent = `${submission}`;
     list.appendChild(li);
+    const finish = document.createElement('input');
+    finish.type = "checkbox";
+    li.appendChild(finish);
+  }
+
+  if(submission !== "" && document.querySelector('ul') === null) {
+    createFirstReminder();
+  } else if(submission !== "") {
+    createReminder();
   } else {
     alert('Write yourself a reminder :)');
   }
 
   // Clear input
-  userInput.value = '';
+  input.value = '';
 };
 
 submit.addEventListener('click', submitToDo);
