@@ -50,13 +50,15 @@ function submitToDo(event) {
 function removeReminder(event) {
   const li = event.target.closest('li');
   li.remove();
-  console.log('changed');
+  // console.log('changed');
 }
 
 submit.addEventListener('click', submitToDo);
 
 document.addEventListener('change', function(event) {
   if(event.target.classList.contains('close')) {
-    removeReminder(event);
+    setTimeout(removeReminder, 500, (event));
   }
+
+
 })
