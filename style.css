@@ -1,6 +1,6 @@
 /*
-#dbe9f9
-#9aa3ad
+
+
 #adcaed
 */
 
@@ -11,10 +11,14 @@
   --foreground: #474e56;
   --link: #66a2ef;
   --hover: #cacfd5;
+  --placeholder: #9aa3ad;
+  --input: #dbe9f9;
 
   --wrap: calc(100% - 10rem);
   --mobile-wrap: calc(100% - 4rem);
   --space: 2rem;
+  --half-space: 1rem;
+  --quarter-space: 0.5rem;
 
   --font: -apple-system, BlinkMacSystemFont, sans-serif;
   --box-shadow: rgba(var(--foreground), 0.5);
@@ -71,9 +75,9 @@ a {
   padding: 0.5rem;
 }
 
-a:hover {
+a:hover,
+a:focus {
   color: var(--hover);
-
 }
 
 main {
@@ -91,16 +95,54 @@ h2 {
   padding-bottom: var(--space);
 }
 
+a,
+input:focus,
+button:focus {
+  outline: none;
+}
+
 /* Post Reminder */
-.post-reminder {
+form {
   width: 100%;
   display: flex;
+  align-items: center;
 }
 
 input[type="text"] {
   width: 100%;
   border: none;
   border-radius: 5em;
+  font-size: 1em;
+  padding: var(--quarter-space) var(--half-space);
+  color: var(--foreground);
+  background-color: var(--input);
+}
+
+input::placeholder {
+  color: var(--placeholder);
+}
+
+input:focus {
+  background-color: var(--hover);
+}
+
+button {
+  background: none;
+  border: none;
+  transform: translateX(0.5em);
+  cursor: pointer;
+}
+
+button svg {
+  height: 2.5rem;
+  width: 2.5rem;
+  fill: var(--link);
+  padding: 0.5rem;
+}
+
+button svg:hover,
+button svg:focus {
+  color: var(--hover);
 }
 
 /* List */

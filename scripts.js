@@ -1,6 +1,6 @@
 const input = document.querySelector('input[type=text]');
-const submit = document.querySelector('span');
-const form = document.querySelector('.post-reminder');
+const submit = document.querySelector('button');
+const form = document.querySelector('form');
 
 const checkbox = document.createElement('input');
 
