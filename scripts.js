@@ -2,6 +2,9 @@ const input = document.querySelector('input[type=text]');
 const submit = document.querySelector('input[type=submit]');
 const form = document.querySelector('form');
 
+const checkbox = document.createElement('input');
+
+
 function submitToDo(event) {
 
   // Get input
@@ -13,10 +16,11 @@ function submitToDo(event) {
     form.insertAdjacentElement('beforebegin', list);
     const li = document.createElement('li');
     li.textContent = `${submission}`;
-
     list.appendChild(li);
-    const finish = document.createElement('input');
+    // const finish = document.createElement('input');
+    const finish = checkbox;
     finish.type = "checkbox";
+    finish.classList.add('close');
     li.appendChild(finish);
   }
 
@@ -27,6 +31,7 @@ function submitToDo(event) {
     list.appendChild(li);
     const finish = document.createElement('input');
     finish.type = "checkbox";
+    finish.classList.add('close');
     li.appendChild(finish);
   }
 
@@ -42,4 +47,16 @@ function submitToDo(event) {
   input.value = '';
 };
 
+function removeReminder(event) {
+  const li = event.target.closest('li');
+  li.remove();
+  console.log('changed');
+}
+
 submit.addEventListener('click', submitToDo);
+
+document.addEventListener('change', function(event) {
+  if(event.target.classList.contains('close')) {
+    removeReminder(event);
+  }
+})
