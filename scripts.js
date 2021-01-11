@@ -1,6 +1,6 @@
 const input = document.querySelector('input[type=text]');
-const submit = document.querySelector('input[type=submit]');
-const form = document.querySelector('form');
+const submit = document.querySelector('span');
+const form = document.querySelector('.post-reminder');
 
 const checkbox = document.createElement('input');
 
@@ -59,6 +59,4 @@ document.addEventListener('change', function(event) {
   if(event.target.classList.contains('close')) {
     setTimeout(removeReminder, 500, (event));
   }
-
-
 })
