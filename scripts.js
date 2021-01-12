@@ -3,43 +3,36 @@ const submit = document.querySelector('button');
 const form = document.querySelector('form');
 const checkbox = document.createElement('input');
 
-function submitToDo(event) {
+// Creates ul for all reminders
+function createList() {
+  const list = document.createElement('ul');
+  form.insertAdjacentElement('beforebegin', list);
+}
 
-  // Get input
+// Creates li with single reminder content
+function createReminder(submission) {
+  const list = document.querySelector('ul');
+  const li = document.createElement('li');
+  list.appendChild(li);
+  const p = document.createElement('p');
+  li.appendChild(p);
+  p.textContent = `${submission}`;
+  const finish = document.createElement('input');
+  finish.type = "checkbox";
+  finish.classList.add('close');
+  li.appendChild(finish);
+}
+
+// Submits Reminders
+function handleClick(event) {
   event.preventDefault();
   let submission = input.value;
 
-  function createFirstReminder() {
-    const list = document.createElement('ul');
-    form.insertAdjacentElement('beforebegin', list);
-    const li = document.createElement('li');
-    list.appendChild(li);
-    const p = document.createElement('p');
-    li.appendChild(p);
-    p.textContent = `${submission}`;
-    const finish = checkbox;
-    finish.type = "checkbox";
-    finish.classList.add('close');
-    li.appendChild(finish);
-  }
-
-  function createReminder() {
-    const list = document.querySelector('ul');
-    const li = document.createElement('li');
-    list.appendChild(li);
-    const p = document.createElement('p');
-    li.appendChild(p);
-    p.textContent = `${submission}`;
-    const finish = document.createElement('input');
-    finish.type = "checkbox";
-    finish.classList.add('close');
-    li.appendChild(finish);
-  }
-
-  if(submission !== "" && document.querySelector('ul') === null) {
-    createFirstReminder();
-  } else if(submission !== "") {
-    createReminder();
+  if(submission !== '' && document.querySelector('ul') === null) {
+    createList();
+    createReminder(submission);
+  } else if(submission !== '') {
+    createReminder(submission);
   } else {
     return;
   }
@@ -48,13 +41,17 @@ function submitToDo(event) {
   input.value = '';
 };
 
+// Removes completed reminders
 function removeReminder(event) {
   const li = event.target.closest('li');
   li.remove();
 }
 
-submit.addEventListener('click', submitToDo);
 
+// Listens to submit reminder
+submit.addEventListener('click', handleClick);
+
+// Listens to remove reminder
 document.addEventListener('change', function(event) {
   if(event.target.classList.contains('close')) {
     setTimeout(removeReminder, 750, (event));
