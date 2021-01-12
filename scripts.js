@@ -1,9 +1,7 @@
 const input = document.querySelector('input[type=text]');
 const submit = document.querySelector('button');
 const form = document.querySelector('form');
-
 const checkbox = document.createElement('input');
-
 
 function submitToDo(event) {
 
@@ -15,9 +13,10 @@ function submitToDo(event) {
     const list = document.createElement('ul');
     form.insertAdjacentElement('beforebegin', list);
     const li = document.createElement('li');
-    li.textContent = `${submission}`;
     list.appendChild(li);
-    // const finish = document.createElement('input');
+    const p = document.createElement('p');
+    li.appendChild(p);
+    p.textContent = `${submission}`;
     const finish = checkbox;
     finish.type = "checkbox";
     finish.classList.add('close');
@@ -27,8 +26,10 @@ function submitToDo(event) {
   function createReminder() {
     const list = document.querySelector('ul');
     const li = document.createElement('li');
-    li.textContent = `${submission}`;
     list.appendChild(li);
+    const p = document.createElement('p');
+    li.appendChild(p);
+    p.textContent = `${submission}`;
     const finish = document.createElement('input');
     finish.type = "checkbox";
     finish.classList.add('close');
@@ -40,7 +41,7 @@ function submitToDo(event) {
   } else if(submission !== "") {
     createReminder();
   } else {
-    alert('Write yourself a reminder :)');
+    return;
   }
 
   // Clear input
@@ -50,13 +51,12 @@ function submitToDo(event) {
 function removeReminder(event) {
   const li = event.target.closest('li');
   li.remove();
-  // console.log('changed');
 }
 
 submit.addEventListener('click', submitToDo);
 
 document.addEventListener('change', function(event) {
   if(event.target.classList.contains('close')) {
-    setTimeout(removeReminder, 500, (event));
+    setTimeout(removeReminder, 750, (event));
   }
 })
