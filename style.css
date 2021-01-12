@@ -116,6 +116,7 @@ input[type="text"] {
   color: var(--foreground);
   background-color: var(--input);
   font-weight: 500;
+  -webkit-appearance: none;
 }
 
 input::placeholder {
@@ -132,6 +133,7 @@ button {
   transform: translateX(0.7em);
   cursor: pointer;
   padding: 0.5rem;
+  -webkit-appearance: none;
 }
 
 button svg {
@@ -171,13 +173,13 @@ p {
 }
 
 li input[type="checkbox"] {
-  appearance: none;
   position: relative;
   height: 1.6em;
   width: 1.6em;
   transform: translateX(0.3em);
   justify-self: end;
   -webkit-appearance: none;
+  border: none;
 }
 
 li input[type="checkbox"]:before {
