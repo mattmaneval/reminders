@@ -187,8 +187,8 @@ li input[type="checkbox"]:before {
   border-radius: 2rem;
   border: 3px solid var(--hover);
   position: absolute;
-  height: 1.5em;
-  width: 1.5em;
+  height: 25px;
+  width: 25px;
   top: 0;
   left: 0;
   display: inline-block;
@@ -202,8 +202,8 @@ li input[type="checkbox"]:checked:before {
 li input[type="checkbox"]:checked:after{
   content: "";
   position: absolute;
-  height: 10px;
-  width: 10px;
+  height: 15px;
+  width: 15px;
   top: 5px;
   left: 5px;
   display: inline-block;

@@ -54,7 +54,7 @@ submit.addEventListener('click', handleClick);
 // Listens to remove reminder
 document.addEventListener('change', function(event) {
   if(event.target.classList.contains('close')) {
-    setTimeout(removeReminder, 7500*1000, (event));
+    setTimeout(removeReminder, 750, (event));
 
   }
 })
