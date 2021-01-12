@@ -105,6 +105,7 @@ form {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 input[type="text"] {
@@ -130,15 +131,15 @@ input:focus::placeholder {
 button {
   background: none;
   border: none;
-  transform: translateX(0.7em);
+  transform: translateX(11px);
   cursor: pointer;
   padding: 0.5rem;
   -webkit-appearance: none;
 }
 
 button svg {
-  height: 1.7rem;
-  width: 1.7rem;
+  height: 35px;
+  width: 35px;
   fill: var(--hover);
 }
 
@@ -174,8 +175,8 @@ p {
 
 li input[type="checkbox"] {
   position: relative;
-  height: 1.6em;
-  width: 1.6em;
+  height: 25px;
+  width: 25px;
   transform: translateX(0.3em);
   justify-self: end;
   -webkit-appearance: none;
