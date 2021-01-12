@@ -177,9 +177,6 @@ li input[type="checkbox"] {
   width: 1.6em;
   transform: translateX(0.3em);
   justify-self: end;
-}
-
-input {
   -webkit-appearance: none;
 }
 
@@ -247,7 +244,7 @@ footer {
   main {
     width: calc(100% - 2rem);
     padding: var(--half-space);
-    font-size: 1.25em;
+    font-size: 1.4em;
   }
 
   ul {
