@@ -179,6 +179,10 @@ li input[type="checkbox"] {
   justify-self: end;
 }
 
+input {
+  -webkit-appearance: none;
+}
+
 li input[type="checkbox"]:before {
   content: "";
   border-radius: 2rem;
@@ -243,6 +247,7 @@ footer {
   main {
     width: calc(100% - 2rem);
     padding: var(--half-space);
+    font-size: 1.25em;
   }
 
   ul {
