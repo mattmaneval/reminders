@@ -1,10 +1,8 @@
 :root {
-  font-size: 16px;
+  --background: #ffffff;
   --background-alt: #f1f7fd;
-  --background-tert: #adcaed;
-  --foreground: #474e56;
-  --callout: #66a2ef;
   --foreground:  #0a192f;
+  --callout: #66a2ef;
   --hover: #cacfd5;
   --placeholder: #9aa3ad;
   --input: #dbe9f9;
@@ -15,8 +13,8 @@
   --half-space: 1rem;
   --quarter-space: 0.5rem;
 
+  --base: 16px;
   --font: -apple-system, BlinkMacSystemFont, sans-serif;
-  --box-shadow: rgba(var(--foreground), 0.5);
   --transition: all 0.2s;
 }
 
@@ -39,6 +37,7 @@ body {
   margin: 0;
   width: 100%;
   min-height: 100vh;
+  font-size: var(--base);
   color: var(--foreground);
   background-color: var(--background);
   font-family: var(--font);
@@ -57,7 +56,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 2em 0; */
 }
 
 h1 {
@@ -70,7 +68,7 @@ h1 {
 
 a {
   text-decoration: none;
-  color: var(--foreground);
+  color: var(--callout);
   transition: var(--transition);
   padding: 0.5rem;
 }
@@ -81,11 +79,11 @@ a:focus {
 }
 
 main {
-  grid-area: 1/1/3/2;
+  grid-area: 2/1/3/2;
   width: calc(100% - 10rem);
   max-width: 40em;
   display: block;
-  margin: 6em auto;
+  margin: 0 auto;
   background-color: var(--background-alt);
   padding: 3rem;
   border-radius: 0.5em;
@@ -103,7 +101,6 @@ button:focus {
   outline: none;
 }
 
-/* Post Reminder */
 form {
   width: 100%;
   display: flex;
@@ -144,11 +141,10 @@ button svg {
 }
 
 input:focus + button svg {
-  fill: var(--background);
+  fill: var(--foreground);
   transition: var(--transition);
 }
 
-/* List */
 ul {
   list-style: none;
   margin: 0;
@@ -186,13 +182,18 @@ li input[type="checkbox"] {
 li input[type="checkbox"]:before {
   content: "";
   border-radius: 2rem;
-  border: 3px solid var(--foreground);
+  border: 3px solid var(--hover);
   position: absolute;
   height: 1.5em;
   width: 1.5em;
   top: 0;
   left: 0;
   display: inline-block;
+}
+
+li input[type="checkbox"]:checked:before {
+  border: 3px solid var(--foreground);
+  transition: all 0.4s;
 }
 
 li input[type="checkbox"]:checked:after{
@@ -205,27 +206,30 @@ li input[type="checkbox"]:checked:after{
   display: inline-block;
   background-color: var(--foreground);
   font-size: 1.6em;
-  transition: all 0.4s;
   border-radius: 100%;
 }
 
 footer {
+  grid-area: 3/1/4/2;
   width: var(--wrap);
   max-width: 80em;
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
 }
 
 /* Primary Mobile */
-/* @media(max-width: 1024px) {} */
-
-/* Big Phone */
-/* @media(max-width: 840px) {} */
+@media(max-width: 1024px) {
+  main {
+    padding: var(--space);
+  }
+}
 
 /* Secondary Mobile */
 @media(max-width: 767px) {
   header {
     width: var(--mobile-wrap);
+    align-items: baseline;
   }
 
   h1 {
@@ -237,9 +241,8 @@ footer {
   }
 
   main {
-    /* width: var(--mobile-wrap); */
     width: calc(100% - 2rem);
-    padding: var(--space);
+    padding: var(--half-space);
   }
 
   ul {
@@ -250,6 +253,3 @@ footer {
     width: var(--mobile-wrap);
   }
 }
-
-/* Small Phone */
-/* @media(max-width: 480px) {} */
