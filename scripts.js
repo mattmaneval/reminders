@@ -55,6 +55,5 @@ submit.addEventListener('click', handleClick);
 document.addEventListener('change', function(event) {
   if(event.target.classList.contains('close')) {
     setTimeout(removeReminder, 750, (event));
-
   }
 })
