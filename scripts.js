@@ -1,31 +1,40 @@
 const input = document.querySelector('input[type=text]');
 const submit = document.querySelector('button');
 const form = document.querySelector('form');
-const checkbox = document.createElement('input');
 
 // Creates ul for all reminders
-function createList() {
+const createList = () => {
   const list = document.createElement('ul');
   form.insertAdjacentElement('beforebegin', list);
 }
 
+// Create li for reminder
+const createListItem = () => {
+
+}
+
 // Creates li with reminder content
-function createReminder(submission) {
+const createReminder = (submission) => {
   const list = document.querySelector('ul');
-  const li = document.createElement('li');
-  li.classList.add('reminder');
-  list.appendChild(li);
-  const p = document.createElement('p');
-  li.appendChild(p);
-  p.textContent = `${submission}`;
-  const finish = document.createElement('input');
-  finish.type = "checkbox";
-  finish.classList.add('close');
-  li.appendChild(finish);
+  
+  // Create and append li
+  const listItem = document.createElement('li');
+  list.appendChild(listItem);
+
+  // Create and append paragraph
+  const para = document.createElement('p');
+  listItem.appendChild(para);
+  para.textContent = `${submission}`;
+
+  // Create and append checkbox
+  const checkbox = document.createElement('input');
+  checkbox.type = "checkbox";
+  checkbox.classList.add('close');
+  listItem.appendChild(checkbox);
 }
 
 // Submits reminder conditionally
-function handleClick(event) {
+const handleClick = (event) => {
   event.preventDefault();
   let submission = input.value;
 
@@ -43,7 +52,7 @@ function handleClick(event) {
 };
 
 // Removes completed reminders
-function removeReminder(event) {
+const removeReminder = (event) => {
   const li = event.target.closest('li');
   li.remove();
 }
